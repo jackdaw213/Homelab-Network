@@ -6,7 +6,7 @@ services:
       - PORT=52000
       - WG_PORT=51000
       - WG_DEFAULT_ADDRESS=10.8.0.x
-      - WG_DEFAULT_DNS=192.168.1.202, 1.1.1.1, 8.8.8.8
+      - WG_DEFAULT_DNS=192.168.10.203, 1.1.1.1, 8.8.8.8
       # 1400 or we will get SSL errors when trying to connect to our domain
       # https://www.reddit.com/r/WireGuard/comments/g6whsp/ssh_works_but_https_not/
       - WG_MTU=1400

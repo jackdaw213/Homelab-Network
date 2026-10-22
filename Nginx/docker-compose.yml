@@ -15,3 +15,6 @@ services:
     volumes:
       - ./config/data:/data
       - ./config/letsencrypt:/etc/letsencrypt
+      # Host trust store, so ACME requests and upstream HTTPS calls reject the
+      # compromised eMudhra intermediates (CVE-2026-111943).
+      - /etc/ssl/certs/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro

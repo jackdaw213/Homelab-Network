@@ -15,10 +15,15 @@ services:
       - UI_TRAFFIC_STATS=true
       - UI_CHART_TYPE=1 # (0 Charts disabled, 1 # Line chart, 2 # Area chart, 3 # Bar chart)
 
-    image: ghcr.io/wg-easy/wg-easy
+    # Pinned: `latest` and `14` are the same digest today. `15` is a breaking
+    # rewrite (SQLite config, PASSWORD_HASH removed, INSECURE required).
+    image: ghcr.io/wg-easy/wg-easy:14
     container_name: wg-easy
     volumes:
       - ./config:/etc/wireguard
+      # wg-quick needs the host module tree to load iptable_nat. Without this
+      # mount the container cannot build the NAT rule and crash-loops.
+      - /lib/modules:/lib/modules:ro
     network_mode: host
     ports:
       - "51000:51000/udp"

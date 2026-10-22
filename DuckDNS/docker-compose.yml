@@ -11,5 +11,8 @@ services:
       - UPDATE_IP=ipv4 
       - LOG_FILE=false 
     volumes:
-      - ./config:/config 
+      - ./config:/config
+      # Host trust store, so the DuckDNS API call rejects the compromised
+      # eMudhra intermediates (CVE-2026-111943).
+      - /etc/ssl/certs/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
     restart: unless-stopped

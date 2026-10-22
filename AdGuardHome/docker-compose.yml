@@ -17,6 +17,9 @@ services:
         volumes:
             - ./config/work:/opt/adguardhome/work
             - ./config/conf:/opt/adguardhome/conf
+            # Host trust store, so DoH upstreams and blocklist downloads reject
+            # the compromised eMudhra intermediates (CVE-2026-111943).
+            - /etc/ssl/certs/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
 
 networks:
   default:

@@ -1,5 +1,5 @@
 ## Setup
-1. Set AdGuardHome's ip address as main DNS server in your router DNS setting
+1. Set host's ip address as main DNS server in your router DNS setting
 2. AdGuardHome Settings
     - Settings 
         - DNS settings
@@ -14,7 +14,7 @@
             - Override maximum TTL: 84600
     - Filters 
         - DNS rewrites
-            - *.jackdawmd.duckdns.org - <NPM's ip address>
+            - *.jackdawmd.duckdns.org - <host's ip address>
         - DNS blocklists
             - Enable: AdAway Default Blocklist
             - Add: VNM ABPVN List

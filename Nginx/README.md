@@ -15,6 +15,7 @@
 3. Create a New Access List with the following settings:
     - **Name:** `Admin`
     - **Satisfy:** `Any`
+    - **Pass Auth:** `True`
     - **Allow:**
     - `<Laptop’s WireGuard IP>`
     - `<Main PC’s IP Address>`

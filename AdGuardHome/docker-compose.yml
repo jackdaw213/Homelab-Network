@@ -19,7 +19,10 @@ services:
             - ./config/conf:/opt/adguardhome/conf
             # Host trust store, so DoH upstreams and blocklist downloads reject
             # the compromised eMudhra intermediates (CVE-2026-111943).
-            - /etc/ssl/certs/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
+            # Both paths: the bundle is a symlink into the extracted dir, and
+            # OpenSSL also reads the hashed per-certificate files in /etc/ssl/certs.
+            - /etc/ssl/certs:/etc/ssl/certs:ro
+            - /etc/ca-certificates/extracted:/etc/ca-certificates/extracted:ro
 
 networks:
   default:
